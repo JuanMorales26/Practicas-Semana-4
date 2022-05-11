@@ -1,9 +1,10 @@
-const fs = require("fs");
+const Reader = require("./lib/utils/Reader");
+const explorers = Reader.readJsonFile("explorers.json"); // esto regresa la lista de explorers del archivo
 
-// Part 1 Read json file ===========================
-const rawdata = fs.readFileSync("explorers.json");
-
-const explorers = JSON.parse(rawdata);
+// Aplicación del ExplorerService sobre la lista de explorers
+ExplorerService.filterByMission(explorers, "node");
+ExplorerService.getAmountOfExplorersByMission(explorers, "node");
+ExplorerService.getExplorersUsernamesByMission(explorers, "node");
 
 // Part 2: Get the quantity of explorers names in node
 const explorersInNode = explorers.filter((explorer) => explorer.mission == "node");
