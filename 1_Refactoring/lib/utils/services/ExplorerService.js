@@ -1,20 +1,18 @@
 class ExplorerService{
     static filterByMission(explorers, mission){
-        const rawdata = fs.readFileSync(path);
-        const explorers = JSON.parse(rawdata);
-        return explorers;
+        const explorersInMission= explorers.filter((explorer) => explorer.mission == mission);
+        return explorersInMission;
     }
 
     static getAmountOfExplorersByMission(explorers, mission){
-        const rawdata = fs.readFileSync(path);
-        const explorers = JSON.parse(rawdata);
-        return explorers;
+        const explorersInMission= explorers.filter((explorer) => explorer.mission == mission);
+        return explorersInMission.length;
     }
 
     static getExplorersUsernamesByMission(explorers, mission){
-        const rawdata = fs.readFileSync(path);
-        const explorers = JSON.parse(rawdata);
-        return explorers;
+        const explorersInMissionToGetUsernames = explorers.filter((explorer) => explorer.mission == mission);
+        const usernamesInMission = explorersInMissionToGetUsernames.map((explorer) => explorer.githubUsername);
+        return usernamesInMission;
     }
 }
 
